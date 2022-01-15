@@ -1,15 +1,16 @@
 Package.describe({
 	name: 'edemaine:accounts-ui-bootstrap-3',
 	summary: 'Bootstrap-styled accounts-ui with multi-language support',
-	version: '1.2.92',
+	version: '1.3.0',
 	git: "https://github.com/edemaine/meteor-accounts-ui-bootstrap-3"
 });
 
-Package.on_use(function (api) {
-	api.use(['session@1.0.0',
+Package.onUse(function (api) {
+	api.versionsFrom(['1.12', '2.5']);
+	api.use(['session',
 		'spacebars@1.0.0',
-		'accounts-base@1.0.0',
-		'underscore@1.0.0',
+		'accounts-base',
+		'underscore',
 		'templating@1.0.0',
 		'anti:i18n@0.4.3'
 		],'client')
@@ -21,12 +22,12 @@ Package.on_use(function (api) {
 	api.use(['twbs:bootstrap@3.3.1','nemo64:bootstrap@3.3.1_1'], 'client', {weak: true});
 	// Allows us to call Accounts.oauth.serviceNames, if there are any OAuth
 	// services.
-	api.use('accounts-oauth@1.0.0', {weak: true});
+	api.use('accounts-oauth', {weak: true});
 	// Allows us to directly test if accounts-password (which doesn't use
 	// Accounts.oauth.registerService) exists.
-	api.use('accounts-password@1.0.0', {weak: true});
+	api.use('accounts-password', {weak: true});
 
-	api.add_files([
+	api.addFiles([
 		'accounts_ui.js',
 
 		// translations
