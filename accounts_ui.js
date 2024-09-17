@@ -10,7 +10,10 @@ if (!Accounts.ui._options) {
 		forceApprovalPrompt: {},
 		forceEmailLowercase: false,
 		forceUsernameLowercase: false,
-		forcePasswordLowercase: false
+	        forcePasswordLowercase: false,
+	        loggedInTextClass: "",
+	        loggedOutTextClass: "",
+	        loggedOutIconHtml: ""
 	};
 }
 
@@ -24,7 +27,7 @@ Accounts.ui.navigate = function (route, hash) {
 Accounts.ui.config = function(options) {
 	// validate options keys
 	var VALID_KEYS = ['onCreate', 'passwordSignupFields', 'extraSignupFields', 'forceEmailLowercase', 'forceUsernameLowercase','forcePasswordLowercase',
-	'requestPermissions', 'requestOfflineToken', 'forceApprovalPrompt'];
+			  'requestPermissions', 'requestOfflineToken', 'forceApprovalPrompt', 'loggedInTextClass', 'loggedOutTextClass', 'loggedOutIconHtml'];
 
 	_.each(_.keys(options), function(key) {
 		if (!_.contains(VALID_KEYS, key)){
@@ -65,6 +68,9 @@ Accounts.ui.config = function(options) {
 	Accounts.ui._options.forceEmailLowercase = options.forceEmailLowercase;
 	Accounts.ui._options.forceUsernameLowercase = options.forceUsernameLowercase;
 	Accounts.ui._options.forcePasswordLowercase = options.forcePasswordLowercase;
+	Accounts.ui._options.loggedInTextClass = options.loggedInTextClass;
+	Accounts.ui._options.loggedOutTextClass = options.loggedOutTextClass;
+	Accounts.ui._options.loggedOutIconHtml = options.loggedOutIconHtml;
 
 	// deal with `requestPermissions`
 	if (options.requestPermissions) {
