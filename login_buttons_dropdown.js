@@ -314,7 +314,12 @@
 				}
 			}];
 
-			signupFields = signupFields.concat(Accounts.ui._options.extraSignupFields);
+			// Put custom fields before password so not mistaken for password-again
+			signupFields.splice(
+				signupFields.findIndex((field) => field.fieldName === 'password'),
+				0,
+				...Accounts.ui._options.extraSignupFields
+			);
 
 			return loginButtonsSession.get('inSignupFlow') ? signupFields : loginFields;
 		},

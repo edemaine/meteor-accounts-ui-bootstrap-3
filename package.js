@@ -1,7 +1,7 @@
 Package.describe({
 	name: 'edemaine:accounts-ui-bootstrap-3',
 	summary: 'Bootstrap-styled accounts-ui with multi-language support',
-	version: '1.3.0',
+	version: '2.0.0',
 	git: "https://github.com/edemaine/meteor-accounts-ui-bootstrap-3"
 });
 

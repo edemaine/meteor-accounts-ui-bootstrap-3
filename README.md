@@ -5,12 +5,15 @@ Meteor accounts-ui styled with Twitter's Bootstrap 3, now with multi-language su
 
 This fork of [ian:accounts-ui-bootstrap-3](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3)
 incorporates the following fixes:
+
 * [TechplexEngineer's fixes](https://github.com/TechplexEngineer/meteor-accounts-ui-bootstrap-3)
   which in particular [remove the dependency on stylus](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3/pull/234)
 * Remove old calls to `Meteor.flush()` to quell the errors
   `Uncaught TypeError: Meteor.flush is not a function`
   ([issue](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3/issues/235),
   [PR](https://github.com/ianmartorell/meteor-accounts-ui-bootstrap-3/pull/236))
+* Extra signup fields go before password instead of after,
+  to prevent mistaking them for repeating the password.
 
 Installation
 ------------
