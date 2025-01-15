@@ -278,13 +278,11 @@
 						Accounts.ui._passwordSignupFields());
 				}
 			}, {
-				fieldName: 'email',
-				fieldLabel: i18n('signupFields.email'),
-				inputType: 'email',
+				fieldName: 'password',
+				fieldLabel: i18n('signupFields.password'),
+				inputType: 'password',
 				visible: function() {
-					return _.contains(
-						["USERNAME_AND_EMAIL_CONFIRM", "USERNAME_AND_EMAIL", "EMAIL_ONLY"],
-						Accounts.ui._passwordSignupFields());
+					return true;
 				}
 			}, {
 				fieldName: 'email',
@@ -292,13 +290,6 @@
 				inputType: 'email',
 				visible: function() {
 					return Accounts.ui._passwordSignupFields() === "USERNAME_AND_OPTIONAL_EMAIL";
-				}
-			}, {
-				fieldName: 'password',
-				fieldLabel: i18n('signupFields.password'),
-				inputType: 'password',
-				visible: function() {
-					return true;
 				}
 			}, {
 				fieldName: 'password-again',
@@ -312,12 +303,19 @@
 						["USERNAME_AND_EMAIL_CONFIRM", "USERNAME_AND_OPTIONAL_EMAIL", "USERNAME_ONLY"],
 						Accounts.ui._passwordSignupFields());
 				}
+			}, {
+				fieldName: 'email',
+				fieldLabel: i18n('signupFields.email'),
+				inputType: 'email',
+				visible: function() {
+					return _.contains(
+						["USERNAME_AND_EMAIL_CONFIRM", "USERNAME_AND_EMAIL", "EMAIL_ONLY"],
+						Accounts.ui._passwordSignupFields());
+				}
 			}];
 
 			// Put custom fields before password so not mistaken for password-again
-			signupFields.splice(
-				signupFields.findIndex((field) => field.fieldName === 'password'),
-				0,
+			signupFields.push(
 				...Accounts.ui._options.extraSignupFields
 			);
 
